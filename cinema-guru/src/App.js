@@ -1,23 +1,40 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import axios from 'axios';
+import Dashboard from './components/Dashboard';
+import Authentication from './components/Authentication';
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userUsername, setUserUsername] = useState('');
+
+  useEffect(() => {
+    const accessToken = localStorage.getItem('accessToken');
+
+    if (accessToken) {
+      axios.post('/api/auth/', {}, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`
+        }
+      })
+      .then(response => {
+        setIsLoggedIn(true);
+        setUserUsername(response.data.username);
+      })
+      .catch(error => {
+        console.error('Authentication failed:', error);
+        setIsLoggedIn(false);
+      });
+    }
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {isLoggedIn ? (
+        <Dashboard userUsername={userUsername} setIsLoggedIn={setIsLoggedIn} />
+      ) : (
+        <Authentication setIsLoggedIn={setIsLoggedIn} setUserUsername={setUserUsername} />
+      )}
     </div>
   );
 }
