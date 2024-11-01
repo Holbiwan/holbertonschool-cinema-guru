@@ -1,32 +1,22 @@
-import React, { useState } from "react";
-import "./general.css";
+import './general.css';
 
-const SelectInput = ({
-  label,
-  options,
-  multiple,
-  className,
-  value,
-  setValue,
-}) => {
-  const handleSelect = (event) => {
-    setValue(event.target.value);
-  };
+const SelectInput = ({label, options, className, value, setValue}) => {
+    const handleSelect = (event) => {
+        setValue(event.target.value);
+    }
 
-  [value, setValue] = useState("");
-
-  return (
-    <div className={className}>
-      <label>{label}</label>
-      <select value={value} onChange={handleSelect} multiple={multiple}>
-        {options.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
-    </div>
-  );
-};
+    return (
+        <div className={`select-input-container ${className}`}>
+            <label>
+                {label}
+            </label>
+            <select value={value} onChange={handleSelect}>
+                {options.map((option, index) => (
+                    <option key={index} value={option}>{option}</option>
+                ))}
+            </select>
+        </div>
+    )
+}
 
 export default SelectInput;
