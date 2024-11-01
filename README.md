@@ -1,4 +1,6 @@
-# Holberton School Cinema Guru API
+# Holberton School Cinema Guru 
+Implement an app with React
+![](https://zupimages.net/up/24/44/rnxg.png)
 This is a simple movies API dedicated for Holberton School React Project Holberton School Cinema Guru
 
 ## Response Codes 
