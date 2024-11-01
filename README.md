@@ -602,7 +602,6 @@ Content-Length: xy
 {
     ...
 }
-``` 
 
 ## Authors
 
