@@ -3,7 +3,42 @@ Implement an app with React
 ![](https://zupimages.net/up/24/44/rnxg.png) 
 
 
-### Response Codes
+
+
+## Technologies Used
+
+### Frontend
+*    React
+*    React Hooks
+*    React Font Awesome
+*    React Router
+*    axios
+
+### Backend
+*    Docker
+*    Holberton provided API
+
+## Demo
+
+1. Clone the repository
+
+2. Run yarn install to install all dependencies
+
+3. Run yarn start to start the application
+
+4. Open http://localhost:3000 to view it in the browser
+
+## Screenshots
+
+
+
+![](./my-app/public/CinemaGuru_LogIn.png)
+
+
+![](./my-app/public/CinemaGuru_Home.png)
+
+
+## Response Codes
 ```
 200: Success
 400: Bad request
@@ -13,7 +48,7 @@ Implement an app with React
 422: Unprocessable Entity 
 50X: Server Error
 ```
-### Example Error Message
+## Example Error Message
 ```json
 http code 402
 {
