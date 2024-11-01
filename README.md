@@ -2,7 +2,7 @@
 Implement an app with React
 ![](https://zupimages.net/up/24/44/rnxg.png) 
 
-## Response Codes 
+
 ### Response Codes
 ```
 200: Success
